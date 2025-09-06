@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Boston 25 Newswire</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Helvetica&display=swap');
+
+    /* Thin Globe-style red line at the top */
+    body::before {
+      content: "";
+      display: block;
+      height: 4px;
+      background-color: #b30000;
+      width: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 1.5rem 1rem 0.5rem;
+      border-bottom: 1px solid #ccc;
+    }
+
+    header h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.5rem;
+      margin: 0;
+      color: #222;
+    }
+
+    /* Ticker styles */
+    .ticker-container {
+      background-color: #f5f5f5;
+      overflow: hidden;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      white-space: nowrap;
+      padding: 0.5rem 0;
+      margin-top: 0.5rem;
+    }
+
+    .ticker {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker-scroll 45s linear infinite; /* slower scroll */
+    }
+
+    .ticker span {
+      margin-right: 2rem;
+      font-weight: 700;
+      color: #b30000;
+    }
+
+    @keyframes ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .search-box {
+      margin: 1.5rem auto;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.75rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.5rem;
+      color: #222;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 4px;
+      background-color: #fdfdfd;
+      transition: box-shadow 0.2s ease-in-out;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    .card a {
+      font-family: 'Merriweather', serif;
+      font-size: 1.2rem;
+      color: #b30000;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+      border-top: 1px solid #ccc;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+
+  <script>
+    function searchLinks() {
+      const input = document.getElementById("search").value.toLowerCase();
+      const cards = document.getElementsByClassName("card");
+      for (let i = 0; i < cards.length; i++) {
+        const text = cards[i].innerText.toLowerCase();
+        cards[i].style.display = text.includes(input) ? "block" : "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Boston 25 Newswire</h1>
+
+    <!-- Ticker showing all newspaper cities -->
+    <div class="ticker-container">
+      <div class="ticker">
+        <span>Attleboro</span>
+        <span>Brockton</span>
+        <span>Cape Cod</span>
+        <span>Fall River</span>
+        <span>Gloucester</span>
+        <span>Lawrence</span>
+        <span>Lowell</span>
+        <span>Lynn</span>
+        <span>Metro West</span>
+        <span>Milford</span>
+        <span>New Bedford</span>
+        <span>Patriot Ledger Area</span>
+        <span>Salem</span>
+        <span>Fitchburg</span>
+        <span>Taunton</span>
+        <span>Waltham</span>
+        <span>Worcester</span>
+        <span>Manchester NH</span>
+        <span>Portsmouth NH</span>
+        <span>Nashua NH</span>
+        <span>Fosters Area</span>
+        <span>Concord NH</span>
+      </div>
+    </div>
+
+    <div class="search-box">
+      <input type="text" id="search" onkeyup="searchLinks()" placeholder="Search newspapers and blogs...">
+    </div>
+  </header>
+
+  <section>
+    <h2>Massachusetts Newspapers</h2>
+    <div class="grid">
+      <div class="card"><a href="http://www.thesunchronicle.com/" target="_blank">Attleboro Sun Chronicle</a></div>
+      <div class="card"><a href="http://www.enterprisenews.com/" target="_blank">Brockton Enterprise</a></div>
+      <div class="card"><a href="http://www.capecodonline.com/apps/pbcs.dll/section?category=NEWS" target="_blank">Cape Cod Times</a></div>
+      <div class="card"><a href="http://www.heraldnews.com/" target="_blank">Fall River Herald</a></div>
+      <div class="card"><a href="http://www.gloucestertimes.com/" target="_blank">Gloucester Times</a></div>
+      <div class="card"><a href="http://www.eagletribune.com/" target="_blank">Lawrence Eagle Tribune</a></div>
+      <div class="card"><a href="http://www.lowellsun.com/" target="_blank">Lowell Sun</a></div>
+      <div class="card"><a href="http://www.itemlive.com/" target="_blank">Lynn Daily Item</a></div>
+      <div class="card"><a href="http://www.metrowestdailynews.com/" target="_blank">Metro West Daily News</a></div>
+      <div class="card"><a href="http://www.milforddailynews.com/" target="_blank">Milford Daily News</a></div>
+      <div class="card"><a href="http://www.southcoasttoday.com/" target="_blank">New Bedford Standard Times</a></div>
+      <div class="card"><a href="http://www.patriotledger.com/" target="_blank">Patriot Ledger</a></div>
+      <div class="card"><a href="http://www.salemnews.com/" target="_blank">Salem News</a></div>
+      <div class="card"><a href="http://www.sentinelandenterprise.com/" target="_blank">Fitchburg Sentinel</a></div>
+      <div class="card"><a href="http://www.tauntongazette.com/" target="_blank">Taunton Gazette</a></div>
+      <div class="card"><a href="http://www.wickedlocal.com/waltham" target="_blank">Waltham Daily News</a></div>
+      <div class="card"><a href="http://www.telegram.com/" target="_blank">Worcester Telegram</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>New Hampshire Newspapers</h2>
+    <div class="grid">
+      <div class="card"><a href="http://www.unionleader.com/" target="_blank">Manchester Union Leader</a></div>
+      <div class="card"><a href="http://www.seacoastonline.com/apps/pbcs.dll/section?category=NEWS09" target="_blank">Portsmouth Herald</a></div>
+      <div class="card"><a href="http://www.nashuatelegraph.com" target="_blank">Nashua Telegraph</a></div>
+      <div class="card"><a href="http://www.fosters.com/" target="_blank">Fosters Daily Democrat</a></div>
+      <div class="card"><a href="http://www.concordmonitor.com/" target="_blank">Concord Monitor</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Police & University Blogs</h2>
+    <div class="grid">
+      <div class="card"><a href="http://www.tpdnews411.com/" target="_blank">MBTA Police</a></div>
+      <div class="card"><a href="http://www.bpdnews.com/" target="_blank">Boston Police</a></div>
+      <div class="card"><a href="http://www.manchesternh.gov/website/Departments/Police/PoliceBlog/tabid/1177/Default.aspx" target="_blank">Manchester NH Police</a></div>
+      <div class="card"><a href="http://www.worcesterma.gov/police" target="_blank">Worcester Police</a></div>
+      <div class="card"><a href="http://blog.brooklinepolice.com/" target="_blank">Brookline Police</a></div>
+      <div class="card"><a href="http://www.bu.edu/police/advisories/journals/" target="_blank">Boston University Police</a></div>
+      <div class="card"><a href="http://www.hupd.harvard.edu/" target="_blank">Harvard Police</a></div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Boston 25 Newswire.
+  </footer>
+</body>
+</html>
